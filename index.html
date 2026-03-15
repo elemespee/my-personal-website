@@ -1,67 +1,521 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LM Solutions - Let Me Handle IT For You</title>
-    <link rel="stylesheet" href="style.css"> </head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>LM Solutions</h1> 
-            <p>Let Me Handle IT For You</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li>
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <button>🔍</button>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LM Solutions - Systems Optimization Consultant</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <section class="latest-services">
-        <h2>LATEST SERVICES...</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <img src="service1.jpg" alt="Web Development"> <h3>Web Development</h3>
-                <p>Build and maintain your website with our expert web development services.</p>
-            </div>
-            <div class="service-item">
-                <img src="service2.jpg" alt="Data Analysis"> <h3>Data Analysis</h3>
-                <p>Gain valuable insights from your data with our analysis and visualization services.</p>
-            </div>
-            <div class="service-item">
-                <img src="service3.jpg" alt="Technical Support"> <h3>Technical Support</h3>
-                <p>Solve your technical problems quickly with our reliable support services.</p>
-            </div>
-            </div>
-    </section>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
 
-    <section class="welcome-section">
-        <div class="welcome-content">
-            <h2>WELCOME! 👋</h2>
-            <img src="profile.jpg" alt="Your Profile Picture" class="profile-pic"> <p>I'm [Your Name] - an IT professional dedicated to helping you succeed. Let me handle your IT needs so you can focus on what matters most. I hope you enjoy exploring!</p>
-            <div class="social-icons">
-                <a href="#"><img src="facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="twitter.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
-                <a href="#"><img src="pinterest.png" alt="Pinterest"></a>
-            </div>
-        </div>
-    </section>
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 50%, #0d1b2a 100%);
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
 
-    <footer>
-        <p>&copy; 2024 LM Solutions. All rights reserved.</p>
-    </footer>
+    /* Subtle circuit board pattern overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, rgba(30, 144, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(30, 144, 255, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-</body>
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Glowing accent elements */
+    .glow-accent {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .glow-1 {
+      width: 400px;
+      height: 400px;
+      background: #1e90ff;
+      top: -100px;
+      left: -150px;
+    }
+
+    .glow-2 {
+      width: 300px;
+      height: 300px;
+      background: #00d4ff;
+      bottom: 200px;
+      right: -100px;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      z-index: 3;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #e2e8f0 0%, #bfdbfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+    }
+
+    .taglines {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+
+    .tagline {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 500;
+      color: #60a5fa;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.95;
+    }
+
+    .tagline:last-child {
+      color: #06b6d4;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #1e90ff 0%, #06b6d4 100%);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 20px 50px rgba(30, 144, 255, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.5);
+      border-color: #06b6d4;
+    }
+
+    .cta-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Services section */
+    .services {
+      position: relative;
+      padding: 100px 20px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 58, 138, 0.3) 100%);
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 80px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      position: relative;
+      padding: 50px 30px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(20, 184, 166, 0.1) 100%);
+      border: 1px solid rgba(30, 144, 255, 0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      z-index: 3;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.2);
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.5) 0%, rgba(20, 184, 166, 0.2) 100%);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 25px;
+      color: #06b6d4;
+      stroke-width: 1.5;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #e2e8f0;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    /* Case study section */
+    .case-study {
+      position: relative;
+      padding: 100px 20px;
+    }
+
+    .case-study-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(20, 184, 166, 0.15) 100%);
+      border: 2px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      padding: 60px 40px;
+      backdrop-filter: blur(10px);
+      z-index: 3;
+    }
+
+    .case-study h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: #e2e8f0;
+    }
+
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .case-study-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-study-item label {
+      font-size: 0.9rem;
+      color: #60a5fa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .case-study-item p {
+      font-size: 1.3rem;
+      color: #e2e8f0;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .achievement-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 20px 30px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(30, 144, 255, 0.1) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 12px;
+      width: fit-content;
+    }
+
+    .achievement-badge svg {
+      width: 28px;
+      height: 28px;
+      color: #06b6d4;
+    }
+
+    .achievement-badge span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #06b6d4 0%, #1e90ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* About section */
+    .about {
+      position: relative;
+      padding: 100px 20px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(20, 184, 166, 0.1) 100%);
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about h2 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
+      border-top: 1px solid rgba(30, 144, 255, 0.1);
+      z-index: 3;
+    }
+
+    footer p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .service-card {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .service-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .service-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        margin-bottom: 15px;
+      }
+
+      .taglines {
+        margin-bottom: 30px;
+      }
+
+      .services-grid {
+        gap: 25px;
+      }
+
+      .service-card {
+        padding: 35px 25px;
+      }
+
+      .case-study-container {
+        padding: 40px 25px;
+      }
+
+      .case-study-grid {
+        gap: 25px;
+      }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="glow-accent glow-1"></div>
+  <div class="glow-accent glow-2"></div>
+  <main><!-- HERO SECTION -->
+   <section class="hero">
+    <div class="hero-content">
+     <h1 id="business-name">LM Solutions</h1>
+     <div class="taglines">
+      <p class="tagline" id="tagline-primary">Systems Optimization in High-Stakes Environments</p>
+      <p class="tagline" id="tagline-secondary">Let Me audIT</p>
+     </div><button class="cta-btn" id="cta-button">Let's Talk</button>
+    </div>
+   </section><!-- SERVICES SECTION -->
+   <section class="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+     <div class="service-card"><i data-lucide="zap" class="service-icon"></i>
+      <h3>Systems Optimization</h3>
+      <p>Optimizing high-stakes environments for peak performance</p>
+     </div>
+     <div class="service-card"><i data-lucide="activity" class="service-icon"></i>
+      <h3>Performance Benchmarking</h3>
+      <p>Data-driven analysis with proven results (Top 0.1% globally)</p>
+     </div>
+     <div class="service-card"><i data-lucide="shield-check" class="service-icon"></i>
+      <h3>Quality Assurance</h3>
+      <p>Rigorous testing from my Game LQA experience</p>
+     </div>
+    </div>
+   </section><!-- CASE STUDY SECTION -->
+   <section class="case-study">
+    <div class="case-study-container">
+     <h2 id="case-study-title">Strategic Systems Optimization &amp; Global Performance Benchmarking</h2>
+     <div class="case-study-grid">
+      <div class="case-study-item"><label>Objective</label>
+       <p>Achieving Top 0.1% Global Ranking</p>
+      </div>
+      <div class="case-study-item"><label>My Role</label>
+       <p id="case-study-role">Available for discussion</p>
+      </div>
+      <div class="case-study-item"><label>Results</label>
+       <p>Top 0.1% across concurrent performance metrics</p>
+      </div>
+     </div>
+     <div class="achievement-badge"><i data-lucide="award"></i> <span>Top 0.1% Global Rank</span>
+     </div>
+    </div>
+   </section><!-- ABOUT SECTION -->
+   <section class="about">
+    <div class="about-content">
+     <h2>About Me</h2>
+     <p id="about-text">With 2-3 years as a Game LQA Specialist at a leading multinational, I've mastered the art of finding what breaks under pressure. I'm now a freelance systems optimization consultant, helping organizations achieve extraordinary performance in demanding environments. I'm a creative problem-solver who bridges technical optimization with innovative thinking—turning complex challenges into elegant solutions.</p>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <p>© 2026 LM Solutions. All rights reserved.</p>
+  </footer>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize Element SDK
+    const defaultConfig = {
+      business_name: "LM Solutions",
+      tagline_primary: "Systems Optimization in High-Stakes Environments",
+      tagline_secondary: "Let Me audIT",
+      cta_button_text: "Let's Talk",
+      about_text: "With 2-3 years as a Game LQA Specialist at a leading multinational, I've mastered the art of finding what breaks under pressure. I'm now a freelance systems optimization consultant, helping organizations achieve extraordinary performance in demanding environments. I'm a creative problem-solver who bridges technical optimization with innovative thinking—turning complex challenges into elegant solutions.",
+      case_study_title: "Strategic Systems Optimization & Global Performance Benchmarking",
+      case_study_role: "Available for discussion",
+      primary_color: "#1e90ff",
+      accent_color: "#06b6d4"
+    };
+
+    let config = { ...defaultConfig };
+
+    const elementHandler = {
+      defaultConfig,
+      onConfigChange: async (newConfig) => {
+        config = newConfig;
+        
+        document.getElementById("business-name").textContent = config.business_name || defaultConfig.business_name;
+        document.getElementById("tagline-primary").textContent = config.tagline_primary || defaultConfig.tagline_primary;
+        document.getElementById("tagline-secondary").textContent = config.tagline_secondary || defaultConfig.tagline_secondary;
+        document.getElementById("cta-button").textContent = config.cta_button_text || defaultConfig.cta_button_text;
+        document.getElementById("about-text").textContent = config.about_text || defaultConfig.about_text;
+        document.getElementById("case-study-title").textContent = config.case_study_title || defaultConfig.case_study_title;
+        document.getElementById("case-study-role").textContent = config.case_study_role || defaultConfig.case_study_role;
+      },
+      
+      mapToCapabilities: (cfg) => ({
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      }),
+      
+      mapToEditPanelValues: (cfg) => new Map([
+        ["business_name", cfg.business_name || defaultConfig.business_name],
+        ["tagline_primary", cfg.tagline_primary || defaultConfig.tagline_primary],
+        ["tagline_secondary", cfg.tagline_secondary || defaultConfig.tagline_secondary],
+        ["cta_button_text", cfg.cta_button_text || defaultConfig.cta_button_text],
+        ["about_text", cfg.about_text || defaultConfig.about_text],
+        ["case_study_title", cfg.case_study_title || defaultConfig.case_study_title],
+        ["case_study_role", cfg.case_study_role || defaultConfig.case_study_role]
+      ])
+    };
+
+    if (window.elementSdk) {
+      window.elementSdk.init(elementHandler);
+    }
+
+    // CTA button click handler
+    document.getElementById("cta-button").addEventListener("click", function() {
+      const subject = "Systems Optimization Consultation Inquiry";
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=I'd%20like%20to%20discuss%20your%20systems%20optimization%20services.`;
+      window.open(mailtoLink);
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dcdcb7da7346e8c',t:'MTc3MzYwMTU4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
