@@ -124,6 +124,16 @@
       font-weight: 600;
     }
 
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: #94a3b8;
+      margin-bottom: 35px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .cta-btn {
       display: inline-block;
       padding: 16px 48px;
@@ -323,6 +333,93 @@
       margin-bottom: 20px;
     }
 
+    /* Creative corner section */
+    .creative-corner {
+      position: relative;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(30, 58, 138, 0.3) 100%);
+    }
+
+    .creative-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 40px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(20, 184, 166, 0.1) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .creative-content h2 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #06b6d4 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .creative-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+      font-style: italic;
+    }
+
+    /* Contact section */
+    .contact {
+      position: relative;
+      padding: 100px 20px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 58, 138, 0.4) 100%);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-content > p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #1e90ff 0%, #06b6d4 100%);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 20px 50px rgba(30, 144, 255, 0.3);
+    }
+
+    .contact-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.5);
+      text-decoration: none;
+    }
+
+    .contact-link:active {
+      transform: translateY(-1px);
+    }
+
     /* Footer */
     footer {
       position: relative;
@@ -400,30 +497,35 @@
  <body>
   <div class="glow-accent glow-1"></div>
   <div class="glow-accent glow-2"></div>
-  <main><!-- HERO SECTION -->
+  <main>
+   <!-- HERO SECTION -->
    <section class="hero">
     <div class="hero-content">
      <h1 id="business-name">LM Solutions</h1>
      <div class="taglines">
       <p class="tagline" id="tagline-primary">Systems Optimization in High-Stakes Environments</p>
       <p class="tagline" id="tagline-secondary">Let Me audIT</p>
-     </div><button class="cta-btn" id="cta-button">Let's Talk</button>
+     </div>
+     <p class="hero-subtitle" id="hero-subtitle">Identify patterns. Eliminate inefficiencies. Deliver results.</p><button class="cta-btn" id="cta-button">Let's Connect</button>
     </div>
    </section><!-- SERVICES SECTION -->
    <section class="services">
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
-     <div class="service-card"><i data-lucide="zap" class="service-icon"></i>
-      <h3>Systems Optimization</h3>
-      <p>Optimizing high-stakes environments for peak performance</p>
+     <div class="service-card">
+      <i data-lucide="zap" class="service-icon"></i>
+      <h3>Systems Analysis &amp; Optimization</h3>
+      <p>I identify patterns, isolate variables, and optimize for performance. Whether analyzing gameplay metrics or business processes, my approach is methodical and results-driven.</p>
      </div>
-     <div class="service-card"><i data-lucide="activity" class="service-icon"></i>
-      <h3>Performance Benchmarking</h3>
-      <p>Data-driven analysis with proven results (Top 0.1% globally)</p>
-     </div>
-     <div class="service-card"><i data-lucide="shield-check" class="service-icon"></i>
+     <div class="service-card">
+      <i data-lucide="activity" class="service-icon"></i>
       <h3>Quality Assurance</h3>
-      <p>Rigorous testing from my Game LQA experience</p>
+      <p>With professional QA experience, I review content, products, and systems for errors, inconsistencies, and opportunities for improvement — delivering clear, actionable feedback.</p>
+     </div>
+     <div class="service-card">
+      <i data-lucide="shield-check" class="service-icon"></i>
+      <h3>Process Efficiency</h3>
+      <p>I eliminate unnecessary steps. When others add complexity, I look for the formula — the shortest path to the right outcome.</p>
      </div>
     </div>
    </section><!-- CASE STUDY SECTION -->
@@ -431,17 +533,21 @@
     <div class="case-study-container">
      <h2 id="case-study-title">Strategic Systems Optimization &amp; Global Performance Benchmarking</h2>
      <div class="case-study-grid">
-      <div class="case-study-item"><label>Objective</label>
-       <p>Achieving Top 0.1% Global Ranking</p>
+      <div class="case-study-item">
+       <label>Objective</label>
+       <p>Achieve Top 0.1% global ranking across concurrent performance metrics</p>
       </div>
-      <div class="case-study-item"><label>My Role</label>
-       <p id="case-study-role">Available for discussion</p>
+      <div class="case-study-item">
+       <label>Approach</label>
+       <p>Pattern analysis, iterative testing, performance tuning</p>
       </div>
-      <div class="case-study-item"><label>Results</label>
-       <p>Top 0.1% across concurrent performance metrics</p>
+      <div class="case-study-item">
+       <label>Results</label>
+       <p>Achieved target twice — second execution 200% faster than the first</p>
       </div>
      </div>
-     <div class="achievement-badge"><i data-lucide="award"></i> <span>Top 0.1% Global Rank</span>
+     <div class="achievement-badge">
+      <i data-lucide="award"></i> <span>Top 0.1% Global Rank</span>
      </div>
     </div>
    </section><!-- ABOUT SECTION -->
@@ -450,12 +556,27 @@
      <h2>About Me</h2>
      <p id="about-text">With 2-3 years as a Game LQA Specialist at a leading multinational, I've mastered the art of finding what breaks under pressure. I'm now a freelance systems optimization consultant, helping organizations achieve extraordinary performance in demanding environments. I'm a creative problem-solver who bridges technical optimization with innovative thinking—turning complex challenges into elegant solutions.</p>
     </div>
+   </section><!-- ABOUT SECTION -->
+   <section class="about">
+    <div class="about-content">
+     <h2>About Me</h2>
+     <p id="about-para1">I'm an analyst and problem-solver with a background in Game Localization QA for an MNC, where I evaluated content for accuracy, consistency, and cultural appropriateness. This work trained me to notice what others overlook — and to articulate clear, actionable solutions.</p>
+     <p id="about-para2">I approach problems the same way I approached optimization in competitive gaming: treat everything as a system. Identify variables. Test hypotheses. Eliminate inefficiencies. Then do it again, faster. In a college programming class, we were tasked with writing a program to solve Tower of Hanoi — specifically, to return the minimum number of moves required for any given number of discs. While my classmates began coding the full recursive solution, I recognized that the minimum moves follow a predictable mathematical pattern: 2^n - 1. I implemented the formula in minutes and delivered exactly what was asked — nothing more, nothing less. My professor was impressed not by complexity, but by precision. I solved the problem by understanding it first.</p>
+    </div>
+   </section><!-- CREATIVE CORNER -->
+   <section class="creative-corner">
+    <div class="creative-content">
+     <h2>Creative Corner</h2>
+     <p id="poetry-note">I also write poetry. (Science-themed. About connection, attention, and the systems we build around each other.) It's a reminder that even in high-stakes environments, there's space for creativity and humanity.</p>
+    </div>
+   </section><!-- CONTACT SECTION -->
+   <section class="contact">
+    <div class="contact-content">
+     <h2>Let's Talk</h2>
+     <p>Have a systems challenge? Ready to optimize? I'd love to hear about it.</p><a href="mailto:prado.lotismay@gmail.com" class="contact-link" id="contact-email">prado.lotismay@gmail.com</a>
+    </div>
    </section>
-  </main>
-  <footer>
-   <p>© 2026 LM Solutions. All rights reserved.</p>
-  </footer>
-  <script>
+   <script>
     // Initialize Lucide icons
     lucide.createIcons();
 
@@ -475,17 +596,34 @@
     let config = { ...defaultConfig };
 
     const elementHandler = {
-      defaultConfig,
+      defaultConfig: {
+        business_name: "LM Solutions",
+        tagline_primary: "Systems Optimization in High-Stakes Environments",
+        tagline_secondary: "Let Me audIT",
+        hero_subtitle: "Identify patterns. Eliminate inefficiencies. Deliver results.",
+        cta_button_text: "Let's Connect",
+        about_para1: "I'm an analyst and problem-solver with a background in Game Localization QA for an MNC, where I evaluated content for accuracy, consistency, and cultural appropriateness. This work trained me to notice what others overlook — and to articulate clear, actionable solutions.",
+        about_para2: "I approach problems the same way I approached optimization in competitive gaming: treat everything as a system. Identify variables. Test hypotheses. Eliminate inefficiencies. Then do it again, faster. In a college programming class, we were tasked with writing a program to solve Tower of Hanoi — specifically, to return the minimum number of moves required for any given number of discs. While my classmates began coding the full recursive solution, I recognized that the minimum moves follow a predictable mathematical pattern: 2^n - 1. I implemented the formula in minutes and delivered exactly what was asked — nothing more, nothing less. My professor was impressed not by complexity, but by precision. I solved the problem by understanding it first.",
+        case_study_title: "Strategic Systems Optimization & Global Performance Benchmarking",
+        poetry_note: "I also write poetry. (Science-themed. About connection, attention, and the systems we build around each other.) It's a reminder that even in high-stakes environments, there's space for creativity and humanity.",
+        contact_email: "prado.lotismay@gmail.com",
+        primary_color: "#1e90ff",
+        accent_color: "#06b6d4"
+      },
       onConfigChange: async (newConfig) => {
         config = newConfig;
         
         document.getElementById("business-name").textContent = config.business_name || defaultConfig.business_name;
         document.getElementById("tagline-primary").textContent = config.tagline_primary || defaultConfig.tagline_primary;
         document.getElementById("tagline-secondary").textContent = config.tagline_secondary || defaultConfig.tagline_secondary;
+        document.getElementById("hero-subtitle").textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
         document.getElementById("cta-button").textContent = config.cta_button_text || defaultConfig.cta_button_text;
-        document.getElementById("about-text").textContent = config.about_text || defaultConfig.about_text;
+        document.getElementById("about-para1").textContent = config.about_para1 || defaultConfig.about_para1;
+        document.getElementById("about-para2").textContent = config.about_para2 || defaultConfig.about_para2;
         document.getElementById("case-study-title").textContent = config.case_study_title || defaultConfig.case_study_title;
-        document.getElementById("case-study-role").textContent = config.case_study_role || defaultConfig.case_study_role;
+        document.getElementById("poetry-note").textContent = config.poetry_note || defaultConfig.poetry_note;
+        document.getElementById("contact-email").href = `mailto:${config.contact_email || defaultConfig.contact_email}`;
+        document.getElementById("contact-email").textContent = config.contact_email || defaultConfig.contact_email;
       },
       
       mapToCapabilities: (cfg) => ({
@@ -499,10 +637,13 @@
         ["business_name", cfg.business_name || defaultConfig.business_name],
         ["tagline_primary", cfg.tagline_primary || defaultConfig.tagline_primary],
         ["tagline_secondary", cfg.tagline_secondary || defaultConfig.tagline_secondary],
+        ["hero_subtitle", cfg.hero_subtitle || defaultConfig.hero_subtitle],
         ["cta_button_text", cfg.cta_button_text || defaultConfig.cta_button_text],
-        ["about_text", cfg.about_text || defaultConfig.about_text],
+        ["about_para1", cfg.about_para1 || defaultConfig.about_para1],
+        ["about_para2", cfg.about_para2 || defaultConfig.about_para2],
         ["case_study_title", cfg.case_study_title || defaultConfig.case_study_title],
-        ["case_study_role", cfg.case_study_role || defaultConfig.case_study_role]
+        ["poetry_note", cfg.poetry_note || defaultConfig.poetry_note],
+        ["contact_email", cfg.contact_email || defaultConfig.contact_email]
       ])
     };
 
@@ -512,10 +653,12 @@
 
     // CTA button click handler
     document.getElementById("cta-button").addEventListener("click", function() {
+      const email = document.getElementById("contact-email").textContent;
       const subject = "Systems Optimization Consultation Inquiry";
-      const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=I'd%20like%20to%20discuss%20your%20systems%20optimization%20services.`;
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=I'd%20like%20to%20discuss%20your%20systems%20optimization%20services.`;
       window.open(mailtoLink);
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dcdcb7da7346e8c',t:'MTc3MzYwMTU4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  </main>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dce2593a6116e8c',t:'MTc3MzYwNTI3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
