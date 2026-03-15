@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LM Solutions - Systems Optimization Consultant</title>
-  <script src="/_sdk/element_sdk.js"></script>
+  <title>LM Solutions | Systems Optimization Consultant</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -16,430 +18,164 @@
 
     html, body {
       height: 100%;
-      width: 100%;
     }
 
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 50%, #0d1b2a 100%);
-      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a1628 0%, #0d1f2d 50%, #0a1628 100%);
+      color: #e5e7eb;
       overflow-x: hidden;
     }
 
-    /* Subtle circuit board pattern overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .grid-pattern {
       background-image: 
-        linear-gradient(90deg, rgba(30, 144, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(rgba(30, 144, 255, 0.02) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: 1;
+        linear-gradient(rgba(100, 200, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 200, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
 
-    main {
-      position: relative;
-      z-index: 2;
+    .circuit-accent {
+      background-image: 
+        linear-gradient(45deg, transparent 48%, rgba(100, 200, 255, 0.05) 49%, rgba(100, 200, 255, 0.05) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(100, 200, 255, 0.05) 49%, rgba(100, 200, 255, 0.05) 51%, transparent 52%);
+      background-size: 60px 60px;
+      background-position: 0 0;
     }
 
-    /* Glowing accent elements */
-    .glow-accent {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.1;
-      filter: blur(60px);
-      pointer-events: none;
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    .glow-1 {
-      width: 400px;
-      height: 400px;
-      background: #1e90ff;
-      top: -100px;
-      left: -150px;
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.015em;
     }
 
-    .glow-2 {
-      width: 300px;
-      height: 300px;
-      background: #00d4ff;
-      bottom: 200px;
-      right: -100px;
+    h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
     }
 
-    /* Hero section */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      text-align: center;
-      max-width: 900px;
-      z-index: 3;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, #e2e8f0 0%, #bfdbfe 100%);
+    .highlight-text {
+      background: linear-gradient(135deg, #64c8ff, #7dd3fc);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 20px;
-      letter-spacing: -1.5px;
+      color: transparent;
     }
 
-    .taglines {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 40px;
-      justify-content: center;
-    }
-
-    .tagline {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      font-weight: 500;
-      color: #60a5fa;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.95;
-    }
-
-    .tagline:last-child {
-      color: #06b6d4;
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #94a3b8;
-      margin-bottom: 35px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 16px 48px;
-      background: linear-gradient(135deg, #1e90ff 0%, #06b6d4 100%);
+    .button-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
       color: white;
-      font-size: 1.1rem;
       font-weight: 600;
-      border: 2px solid transparent;
-      border-radius: 50px;
+      padding: 12px 32px;
+      border-radius: 6px;
+      border: none;
       cursor: pointer;
       transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 20px 50px rgba(30, 144, 255, 0.3);
+      font-size: 15px;
     }
 
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.5);
-      border-color: #06b6d4;
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(6, 182, 212, 0.3);
     }
 
-    .cta-btn:active {
-      transform: translateY(-1px);
+    .button-secondary {
+      background: transparent;
+      color: #64c8ff;
+      font-weight: 600;
+      padding: 12px 32px;
+      border: 1.5px solid #64c8ff;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 15px;
     }
 
-    /* Services section */
-    .services {
-      position: relative;
-      padding: 100px 20px;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 58, 138, 0.3) 100%);
-    }
-
-    .section-title {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 80px;
-      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .button-secondary:hover {
+      background: rgba(100, 200, 255, 0.1);
+      transform: translateY(-2px);
     }
 
     .service-card {
-      position: relative;
-      padding: 50px 30px;
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(20, 184, 166, 0.1) 100%);
-      border: 1px solid rgba(30, 144, 255, 0.2);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(100, 200, 255, 0.2);
+      border-radius: 8px;
+      padding: 32px;
       transition: all 0.3s ease;
-      z-index: 3;
+      backdrop-filter: blur(10px);
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(6, 182, 212, 0.5);
-      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.2);
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.5) 0%, rgba(20, 184, 166, 0.2) 100%);
+      border-color: rgba(100, 200, 255, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
     }
 
     .service-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 25px;
-      color: #06b6d4;
-      stroke-width: 1.5;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      color: #64c8ff;
     }
 
-    .service-card h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #e2e8f0;
-    }
-
-    .service-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #cbd5e1;
-    }
-
-    /* Case study section */
-    .case-study {
-      position: relative;
-      padding: 100px 20px;
-    }
-
-    .case-study-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(20, 184, 166, 0.15) 100%);
-      border: 2px solid rgba(6, 182, 212, 0.3);
-      border-radius: 20px;
-      padding: 60px 40px;
+    .case-study-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(100, 200, 255, 0.2);
+      border-radius: 8px;
+      padding: 40px;
       backdrop-filter: blur(10px);
-      z-index: 3;
     }
 
-    .case-study h2 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 40px;
-      color: #e2e8f0;
+    .stat {
+      text-align: center;
+      padding: 20px;
     }
 
-    .case-study-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 30px;
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #64c8ff;
+      margin-bottom: 8px;
     }
 
-    .case-study-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .case-study-item label {
-      font-size: 0.9rem;
-      color: #60a5fa;
+    .stat-label {
+      font-size: 14px;
+      color: #9ca3af;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      margin-bottom: 10px;
+      letter-spacing: 0.05em;
     }
 
-    .case-study-item p {
-      font-size: 1.3rem;
-      color: #e2e8f0;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .achievement-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 30px;
-      padding: 20px 30px;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(30, 144, 255, 0.1) 100%);
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      border-radius: 12px;
-      width: fit-content;
-    }
-
-    .achievement-badge svg {
-      width: 28px;
-      height: 28px;
-      color: #06b6d4;
-    }
-
-    .achievement-badge span {
-      font-size: 1.1rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #06b6d4 0%, #1e90ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* About section */
-    .about {
-      position: relative;
-      padding: 100px 20px;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(20, 184, 166, 0.1) 100%);
-    }
-
-    .about-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .about h2 {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .about p {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #cbd5e1;
-      margin-bottom: 20px;
-    }
-
-    /* Creative corner section */
-    .creative-corner {
-      position: relative;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(30, 58, 138, 0.3) 100%);
-    }
-
-    .creative-content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 50px 40px;
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(20, 184, 166, 0.1) 100%);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-    }
-
-    .creative-content h2 {
-      font-size: clamp(2rem, 5vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #06b6d4 0%, #93c5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .creative-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #cbd5e1;
-      font-style: italic;
-    }
-
-    /* Contact section */
-    .contact {
-      position: relative;
-      padding: 100px 20px;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 58, 138, 0.4) 100%);
-    }
-
-    .contact-content {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .contact-content > p {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-bottom: 35px;
-      line-height: 1.6;
-    }
-
-    .contact-link {
-      display: inline-block;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, #1e90ff 0%, #06b6d4 100%);
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 50px;
+    .nav-link {
+      color: #d1d5db;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 20px 50px rgba(30, 144, 255, 0.3);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      cursor: pointer;
     }
 
-    .contact-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 30px 60px rgba(30, 144, 255, 0.5);
-      text-decoration: none;
+    .nav-link:hover {
+      color: #64c8ff;
     }
 
-    .contact-link:active {
-      transform: translateY(-1px);
+    .section {
+      scroll-margin-top: 80px;
     }
 
-    /* Footer */
-    footer {
-      position: relative;
-      padding: 40px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
-      border-top: 1px solid rgba(30, 144, 255, 0.1);
-      z-index: 3;
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
     }
 
-    footer p {
-      color: #64748b;
-      font-size: 0.95rem;
-    }
-
-    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -447,218 +183,268 @@
       }
     }
 
-    .service-card {
-      animation: fadeInUp 0.6s ease-out;
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+
+    .poetry-card {
+      background: rgba(15, 23, 42, 0.8);
+      border-left: 3px solid #64c8ff;
+      padding: 28px;
+      border-radius: 4px;
+      font-style: italic;
+      line-height: 1.8;
+      color: #cbd5e1;
     }
 
-    .service-card:nth-child(2) {
-      animation-delay: 0.1s;
+    .poetry-card em {
+      color: #64c8ff;
+      font-style: italic;
     }
 
-    .service-card:nth-child(3) {
-      animation-delay: 0.2s;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: auto;
-        padding: 80px 20px;
-      }
-
-      .hero h1 {
-        margin-bottom: 15px;
-      }
-
-      .taglines {
-        margin-bottom: 30px;
-      }
-
-      .services-grid {
-        gap: 25px;
-      }
-
-      .service-card {
-        padding: 35px 25px;
-      }
-
-      .case-study-container {
-        padding: 40px 25px;
-      }
-
-      .case-study-grid {
-        gap: 25px;
-      }
+    .footer-divider {
+      background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.2), transparent);
+      height: 1px;
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body>
-  <div class="glow-accent glow-1"></div>
-  <div class="glow-accent glow-2"></div>
-  <main>
-   <!-- HERO SECTION -->
-   <section class="hero">
-    <div class="hero-content">
-     <h1 id="business-name">LM Solutions</h1>
-     <div class="taglines">
-      <p class="tagline" id="tagline-primary">Systems Optimization in High-Stakes Environments</p>
-      <p class="tagline" id="tagline-secondary">Let Me audIT</p>
+ <body class="h-full grid-pattern circuit-accent">
+  <main class="h-full overflow-auto bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+   <!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+     <div class="text-sm md:text-xl font-bold"><span><span class="highlight-text">LM</span> <span class="text-slate-300">Solutions</span></span>
      </div>
-     <p class="hero-subtitle" id="hero-subtitle">Identify patterns. Eliminate inefficiencies. Deliver results.</p><button class="cta-btn" id="cta-button">Let's Connect</button>
-    </div>
-   </section><!-- SERVICES SECTION -->
-   <section class="services">
-    <h2 class="section-title">Services</h2>
-    <div class="services-grid">
-     <div class="service-card">
-      <i data-lucide="zap" class="service-icon"></i>
-      <h3>Systems Analysis &amp; Optimization</h3>
-      <p>I identify patterns, isolate variables, and optimize for performance. Whether analyzing gameplay metrics or business processes, my approach is methodical and results-driven.</p>
-     </div>
-     <div class="service-card">
-      <i data-lucide="activity" class="service-icon"></i>
-      <h3>Quality Assurance</h3>
-      <p>With professional QA experience, I review content, products, and systems for errors, inconsistencies, and opportunities for improvement — delivering clear, actionable feedback.</p>
-     </div>
-     <div class="service-card">
-      <i data-lucide="shield-check" class="service-icon"></i>
-      <h3>Process Efficiency</h3>
-      <p>I eliminate unnecessary steps. When others add complexity, I look for the formula — the shortest path to the right outcome.</p>
+     <div class="flex gap-8 items-center">
+      <a class="nav-link" onclick="scrollTo('services'); return false;">Services</a> <a class="nav-link" onclick="scrollTo('case-study'); return false;">Case Study</a> <a class="nav-link" onclick="scrollTo('about'); return false;">About</a> <a class="nav-link" onclick="scrollTo('contact'); return false;">Contact</a>
      </div>
     </div>
-   </section><!-- CASE STUDY SECTION -->
-   <section class="case-study">
-    <div class="case-study-container">
-     <h2 id="case-study-title">Strategic Systems Optimization &amp; Global Performance Benchmarking</h2>
-     <div class="case-study-grid">
-      <div class="case-study-item">
-       <label>Objective</label>
-       <p>Achieve Top 0.1% global ranking across concurrent performance metrics</p>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <div class="absolute inset-0 opacity-20">
+     <div class="absolute top-20 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+     <div class="absolute bottom-20 right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+     <h1 class="text-6xl md:text-7xl mb-6 leading-tight fade-in">Systems <span class="highlight-text">Optimization</span> in High-Stakes Environments</h1>
+     <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto fade-in stagger-1">Pattern recognition. Methodical analysis. Measurable results. I solve problems by understanding systems first.</p>
+     <div class="flex gap-4 justify-center mb-16 fade-in stagger-2">
+      <button class="button-primary" onclick="scrollTo('contact')">Let Me audIT</button>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" class="section py-24 bg-gradient-to-b from-transparent to-slate-900/50">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 class="text-4xl md:text-5xl mb-4 text-center">Services</h2>
+     <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">Methodical approaches to complex problems. Clear, actionable solutions.</p>
+     <div class="grid md:grid-cols-3 gap-8">
+      <!-- Service 1 -->
+      <div class="service-card fade-in stagger-1">
+       <div class="service-icon">
+        <i data-lucide="zap"></i>
+       </div>
+       <h3 class="text-xl mb-4">Systems Analysis &amp; Optimization</h3>
+       <p class="text-slate-400 leading-relaxed">I identify patterns, isolate variables, and optimize for performance. Whether analyzing metrics or business processes, my approach is methodical and results-driven.</p>
+      </div><!-- Service 2 -->
+      <div class="service-card fade-in stagger-2">
+       <div class="service-icon">
+        <i data-lucide="check-circle"></i>
+       </div>
+       <h3 class="text-xl mb-4">Quality Assurance</h3>
+       <p class="text-slate-400 leading-relaxed">With professional QA experience, I review content, products, and systems for errors, inconsistencies, and opportunities for improvement — delivering clear, actionable feedback.</p>
+      </div><!-- Service 3 -->
+      <div class="service-card fade-in stagger-3">
+       <div class="service-icon">
+        <i data-lucide="minimize-2"></i>
+       </div>
+       <h3 class="text-xl mb-4">Process Efficiency</h3>
+       <p class="text-slate-400 leading-relaxed">I eliminate unnecessary steps. When others add complexity, I look for the formula — the shortest path to the right outcome.</p>
       </div>
-      <div class="case-study-item">
-       <label>Approach</label>
-       <p>Pattern analysis, iterative testing, performance tuning</p>
-      </div>
-      <div class="case-study-item">
-       <label>Results</label>
-       <p>Achieved target twice — second execution 200% faster than the first</p>
-      </div>
-     </div>
-     <div class="achievement-badge">
-      <i data-lucide="award"></i> <span>Top 0.1% Global Rank</span>
      </div>
     </div>
-   </section><!-- ABOUT SECTION -->
-   <section class="about">
-    <div class="about-content">
-     <h2>About Me</h2>
-     <p id="about-text">With 2-3 years as a Game LQA Specialist at a leading multinational, I've mastered the art of finding what breaks under pressure. I'm now a freelance systems optimization consultant, helping organizations achieve extraordinary performance in demanding environments. I'm a creative problem-solver who bridges technical optimization with innovative thinking—turning complex challenges into elegant solutions.</p>
+   </section><!-- Case Study Section -->
+   <section id="case-study" class="section py-24">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 class="text-4xl md:text-5xl mb-4">Proven Results</h2>
+     <p class="text-slate-400 mb-16">A case study in systematic optimization and execution.</p>
+     <div class="case-study-box fade-in">
+      <div class="mb-12">
+       <p class="text-slate-500 uppercase tracking-widest text-sm mb-4">Case Study</p>
+       <h3 class="text-3xl md:text-4xl mb-6">Strategic Systems Optimization &amp; Global Performance Benchmarking</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+       <div>
+        <p class="text-slate-500 uppercase tracking-widest text-sm mb-2">Objective</p>
+        <p class="text-lg text-slate-300">Achieve Top 0.1% global ranking across concurrent performance metrics</p>
+       </div>
+       <div>
+        <p class="text-slate-500 uppercase tracking-widest text-sm mb-2">Approach</p>
+        <p class="text-lg text-slate-300">Pattern analysis, iterative testing, performance tuning</p>
+       </div>
+      </div>
+      <div class="footer-divider mb-12"></div>
+      <div>
+       <p class="text-slate-500 uppercase tracking-widest text-sm mb-6">Results</p>
+       <div class="grid md:grid-cols-3 gap-8">
+        <div class="stat">
+         <div class="stat-number">
+          0.1%
+         </div>
+         <div class="stat-label">
+          Global Ranking
+         </div>
+        </div>
+        <div class="stat">
+         <div class="stat-number">
+          2x
+         </div>
+         <div class="stat-label">
+          Achieved Twice
+         </div>
+        </div>
+        <div class="stat">
+         <div class="stat-number">
+          200%
+         </div>
+         <div class="stat-label">
+          Speed Improvement
+         </div>
+        </div>
+       </div>
+       <p class="text-slate-400 mt-8 text-center">Second execution 200% faster than the first — demonstrating replicable, optimized methodology.</p>
+      </div>
+     </div>
     </div>
-   </section><!-- ABOUT SECTION -->
-   <section class="about">
-    <div class="about-content">
-     <h2>About Me</h2>
-     <p id="about-para1">I'm an analyst and problem-solver with a background in Game Localization QA for an MNC, where I evaluated content for accuracy, consistency, and cultural appropriateness. This work trained me to notice what others overlook — and to articulate clear, actionable solutions.</p>
-     <p id="about-para2">I approach problems the same way I approached optimization in competitive gaming: treat everything as a system. Identify variables. Test hypotheses. Eliminate inefficiencies. Then do it again, faster. In a college programming class, we were tasked with writing a program to solve Tower of Hanoi — specifically, to return the minimum number of moves required for any given number of discs. While my classmates began coding the full recursive solution, I recognized that the minimum moves follow a predictable mathematical pattern: 2^n - 1. I implemented the formula in minutes and delivered exactly what was asked — nothing more, nothing less. My professor was impressed not by complexity, but by precision. I solved the problem by understanding it first.</p>
+   </section><!-- About Section -->
+   <section id="about" class="section py-24 bg-gradient-to-b from-transparent to-slate-900/50">
+    <div class="max-w-4xl mx-auto px-6">
+     <h2 class="text-4xl md:text-5xl mb-12">About</h2>
+     <div class="space-y-8 text-slate-300 leading-relaxed fade-in">
+      <p>I'm an analyst and problem-solver with a background in <span class="text-slate-100 font-semibold">Game Localization QA</span> for an MNC, where I evaluated content for accuracy, consistency, and cultural appropriateness. This work trained me to notice what others overlook — and to articulate clear, actionable solutions.</p>
+      <p>I approach problems the same way I approached optimization in competitive gaming: treat everything as a system. Identify variables. Test hypotheses. Eliminate inefficiencies. Then do it again, faster.</p>
+      <div class="bg-slate-800/30 border-l-3 border-cyan-500 pl-6 py-4">
+       <p classname="italic text-slate-400">"In a college programming class, we were tasked with writing a program to solve Tower of Hanoi. While my classmates began coding the full recursive solution, I recognized that the minimum moves follow a predictable mathematical pattern: <span class="text-cyan-400 font-semibold">2<sup>n</sup> - 1</span>. I implemented the formula in minutes and delivered exactly what was asked — nothing more, nothing less."</p>
+      </div>
+      <p>My professor was impressed not by complexity, but by <span class="text-slate-100 font-semibold">precision</span>. I solved the problem by understanding it first.</p>
+      <p>I've achieved <span class="text-slate-100 font-semibold">Top 0.1% global ranking</span> across multiple concurrent performance metrics — not once, but twice. First cycle: reached target 70% of the way through the season. Second cycle: achieved the same result within the first 25% of the season — a 200% improvement in execution speed. This wasn't luck; it was systematic optimization, validated through repetition.</p>
+     </div>
     </div>
-   </section><!-- CREATIVE CORNER -->
-   <section class="creative-corner">
-    <div class="creative-content">
-     <h2>Creative Corner</h2>
-     <p id="poetry-note">I also write poetry. (Science-themed. About connection, attention, and the systems we build around each other.) It's a reminder that even in high-stakes environments, there's space for creativity and humanity.</p>
+   </section><!-- Creative Corner -->
+   <section id="creative" class="section py-24">
+    <div class="max-w-4xl mx-auto px-6">
+     <h2 class="text-4xl md:text-5xl mb-12">Creative Corner</h2>
+     <p class="text-slate-400 mb-8">I also write poetry. Science-themed. About connection, attention, and the systems we build around each other. A reminder that even in high-stakes environments, there's space for creativity and humanity.</p>
+     <div class="space-y-6 fade-in">
+      <div class="poetry-card">
+       <p><em>Chekhov's Gun</em></p>
+       <p class="mt-4">You are my Chekhov's gun.<br>
+         Introduced in Act One —<br>
+         school, admiration, done.<br>
+         The playwright, whoever they are,<br>
+         must be laughing from afar.<br>
+         Because here you are again, Act Five,<br>
+         shaking my stage, tempting my arm.<br>
+         Whatever this is is dangerous, and so —<br>
+         I hope the gun stays on the wall.<br>
+         I hope no one pulls the trigger at all.</p>
+      </div>
+      <div class="poetry-card">
+       <p><em>Stoichiometry</em></p>
+       <p class="mt-4">You are essential like sulfur and nitrogen,<br>
+         simple and light like hydrogen,<br>
+         and as valuable as gold has ever been.<br><br>
+         But I am a bound electron,<br>
+         and you—a different nucleus—<br>
+         are exactly 244.05 amu of something I shouldn't want.<br><br>
+         So why do I keep orbiting you?</p>
+      </div>
+     </div>
     </div>
-   </section><!-- CONTACT SECTION -->
-   <section class="contact">
-    <div class="contact-content">
-     <h2>Let's Talk</h2>
-     <p>Have a systems challenge? Ready to optimize? I'd love to hear about it.</p><a href="mailto:prado.lotismay@gmail.com" class="contact-link" id="contact-email">prado.lotismay@gmail.com</a>
+   </section><!-- Contact Section -->
+   <section id="contact" class="section py-24 bg-gradient-to-b from-transparent to-slate-900/50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+     <h2 class="text-4xl md:text-5xl mb-6">Let's Talk</h2>
+     <p class="text-slate-400 mb-12 text-lg">Have a system that needs optimization? Let Me audIT for you.</p><a href="mailto:prado.lotismay@gmail.com" class="button-primary inline-block mb-8"> Send Me an Email </a>
+     <p class="text-slate-500">prado.lotismay@gmail.com</p>
     </div>
-   </section>
-   <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
+   </section><!-- Footer -->
+   <footer class="border-t border-slate-800 py-12 px-6">
+    <div class="max-w-6xl mx-auto text-center text-slate-500 text-sm">
+     <p>© 2026 LM Solutions. All rights reserved.</p>
+    </div>
+   </footer>
+  </main>
+  <script>
+    function scrollTo(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
-    // Initialize Element SDK
+    // Element SDK Configuration
     const defaultConfig = {
-      business_name: "LM Solutions",
-      tagline_primary: "Systems Optimization in High-Stakes Environments",
-      tagline_secondary: "Let Me audIT",
-      cta_button_text: "Let's Talk",
-      about_text: "With 2-3 years as a Game LQA Specialist at a leading multinational, I've mastered the art of finding what breaks under pressure. I'm now a freelance systems optimization consultant, helping organizations achieve extraordinary performance in demanding environments. I'm a creative problem-solver who bridges technical optimization with innovative thinking—turning complex challenges into elegant solutions.",
-      case_study_title: "Strategic Systems Optimization & Global Performance Benchmarking",
-      case_study_role: "Available for discussion",
-      primary_color: "#1e90ff",
-      accent_color: "#06b6d4"
+      company_tagline: "Systems Optimization in High-Stakes Environments",
+      hero_subtitle: "Pattern recognition. Methodical analysis. Measurable results. I solve problems by understanding systems first.",
+      about_title: "About",
+      cta_button_text: "Get In Touch"
     };
 
-    let config = { ...defaultConfig };
+    const config = { ...defaultConfig };
 
-    const elementHandler = {
-      defaultConfig: {
-        business_name: "LM Solutions",
-        tagline_primary: "Systems Optimization in High-Stakes Environments",
-        tagline_secondary: "Let Me audIT",
-        hero_subtitle: "Identify patterns. Eliminate inefficiencies. Deliver results.",
-        cta_button_text: "Let's Connect",
-        about_para1: "I'm an analyst and problem-solver with a background in Game Localization QA for an MNC, where I evaluated content for accuracy, consistency, and cultural appropriateness. This work trained me to notice what others overlook — and to articulate clear, actionable solutions.",
-        about_para2: "I approach problems the same way I approached optimization in competitive gaming: treat everything as a system. Identify variables. Test hypotheses. Eliminate inefficiencies. Then do it again, faster. In a college programming class, we were tasked with writing a program to solve Tower of Hanoi — specifically, to return the minimum number of moves required for any given number of discs. While my classmates began coding the full recursive solution, I recognized that the minimum moves follow a predictable mathematical pattern: 2^n - 1. I implemented the formula in minutes and delivered exactly what was asked — nothing more, nothing less. My professor was impressed not by complexity, but by precision. I solved the problem by understanding it first.",
-        case_study_title: "Strategic Systems Optimization & Global Performance Benchmarking",
-        poetry_note: "I also write poetry. (Science-themed. About connection, attention, and the systems we build around each other.) It's a reminder that even in high-stakes environments, there's space for creativity and humanity.",
-        contact_email: "prado.lotismay@gmail.com",
-        primary_color: "#1e90ff",
-        accent_color: "#06b6d4"
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (updatedConfig) => {
+        config.company_tagline = updatedConfig.company_tagline || defaultConfig.company_tagline;
+        config.hero_subtitle = updatedConfig.hero_subtitle || defaultConfig.hero_subtitle;
+        config.about_title = updatedConfig.about_title || defaultConfig.about_title;
+        config.cta_button_text = updatedConfig.cta_button_text || defaultConfig.cta_button_text;
+
+        // Update hero title
+        const heroTitle = document.querySelector('#hero h1');
+        if (heroTitle) {
+          heroTitle.innerHTML = config.company_tagline.replace(/Optimization/g, '<span class="highlight-text">Optimization</span>');
+        }
+
+        // Update hero subtitle
+        const heroSubtitle = document.querySelector('#hero > div > div > p:first-of-type');
+        if (heroSubtitle) {
+          heroSubtitle.textContent = config.hero_subtitle;
+        }
+
+        // Update about title
+        const aboutTitle = document.querySelector('#about h2');
+        if (aboutTitle) {
+          aboutTitle.textContent = config.about_title;
+        }
+
+        // Update CTA buttons
+        const ctaButtons = document.querySelectorAll('button.button-primary');
+        ctaButtons.forEach(btn => {
+          if (btn.textContent.includes('Let Me') || btn.textContent.includes('Get In')) {
+            btn.textContent = config.cta_button_text;
+          }
+        });
       },
-      onConfigChange: async (newConfig) => {
-        config = newConfig;
-        
-        document.getElementById("business-name").textContent = config.business_name || defaultConfig.business_name;
-        document.getElementById("tagline-primary").textContent = config.tagline_primary || defaultConfig.tagline_primary;
-        document.getElementById("tagline-secondary").textContent = config.tagline_secondary || defaultConfig.tagline_secondary;
-        document.getElementById("hero-subtitle").textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
-        document.getElementById("cta-button").textContent = config.cta_button_text || defaultConfig.cta_button_text;
-        document.getElementById("about-para1").textContent = config.about_para1 || defaultConfig.about_para1;
-        document.getElementById("about-para2").textContent = config.about_para2 || defaultConfig.about_para2;
-        document.getElementById("case-study-title").textContent = config.case_study_title || defaultConfig.case_study_title;
-        document.getElementById("poetry-note").textContent = config.poetry_note || defaultConfig.poetry_note;
-        document.getElementById("contact-email").href = `mailto:${config.contact_email || defaultConfig.contact_email}`;
-        document.getElementById("contact-email").textContent = config.contact_email || defaultConfig.contact_email;
-      },
-      
       mapToCapabilities: (cfg) => ({
         recolorables: [],
         borderables: [],
         fontEditable: undefined,
         fontSizeable: undefined
       }),
-      
       mapToEditPanelValues: (cfg) => new Map([
-        ["business_name", cfg.business_name || defaultConfig.business_name],
-        ["tagline_primary", cfg.tagline_primary || defaultConfig.tagline_primary],
-        ["tagline_secondary", cfg.tagline_secondary || defaultConfig.tagline_secondary],
+        ["company_tagline", cfg.company_tagline || defaultConfig.company_tagline],
         ["hero_subtitle", cfg.hero_subtitle || defaultConfig.hero_subtitle],
-        ["cta_button_text", cfg.cta_button_text || defaultConfig.cta_button_text],
-        ["about_para1", cfg.about_para1 || defaultConfig.about_para1],
-        ["about_para2", cfg.about_para2 || defaultConfig.about_para2],
-        ["case_study_title", cfg.case_study_title || defaultConfig.case_study_title],
-        ["poetry_note", cfg.poetry_note || defaultConfig.poetry_note],
-        ["contact_email", cfg.contact_email || defaultConfig.contact_email]
+        ["about_title", cfg.about_title || defaultConfig.about_title],
+        ["cta_button_text", cfg.cta_button_text || defaultConfig.cta_button_text]
       ])
-    };
-
-    if (window.elementSdk) {
-      window.elementSdk.init(elementHandler);
-    }
-
-    // CTA button click handler
-    document.getElementById("cta-button").addEventListener("click", function() {
-      const email = document.getElementById("contact-email").textContent;
-      const subject = "Systems Optimization Consultation Inquiry";
-      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=I'd%20like%20to%20discuss%20your%20systems%20optimization%20services.`;
-      window.open(mailtoLink);
     });
+
+    // Lucide icons
+    lucide.createIcons();
   </script>
-  </main>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dce2593a6116e8c',t:'MTc3MzYwNTI3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dce4b0ce62a6e8c',t:'MTc3MzYwNjgwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
